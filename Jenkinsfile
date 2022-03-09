@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh 'docker run -it --rm -v $(pwd):/code --workdir /code maven mvn clean'
+                sh 'docker run --rm -v $(pwd):/code --workdir /code maven mvn clean'
             }
         }
 
         stage('Compile') {
             steps {
-                sh 'docker run -it --rm -v $(pwd):/code --workdir /code maven mvn compile'
+                sh 'docker run --rm -v $(pwd):/code --workdir /code maven mvn compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'docker run -it --rm -v $(pwd):/code --workdir /code maven mvn test'
+                sh 'docker run --rm -v $(pwd):/code --workdir /code maven mvn test'
             }
         }
     }
